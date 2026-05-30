@@ -1,0 +1,67 @@
+---
+description: "Core project context for agentic-airline-platform. Defines tech stack, folder structure, coding standards, and agent workflow. Always loaded."
+alwaysApply: true
+---
+
+# Project: agentic-airline-platform
+
+## What This Project Is
+
+An AI-native airline booking platform built entirely by AI agents. The real goal is to demonstrate a complete AI-driven SDLC: requirements → architecture → code → tests → deployment.
+
+## Active Services (Version 1)
+
+1. **flight-service** — Java 21 + Spring Boot 3 — manages flight data
+2. **booking-service** — Java 21 + Spring Boot 3 — manages reservations
+3. **payment-service** — NestJS (TypeScript) — handles payments
+4. **ticket-service** — Java 21 + Spring Boot 3 — generates tickets and PNR
+
+## Repository Structure
+
+```
+agentic-airline-platform/
+├── .cursor/rules/          ← Cursor agent personas (this folder)
+├── agents/                 ← LangGraph Python pipeline agents
+├── docs/
+│   ├── 01-vision/
+│   ├── 02-requirements/
+│   ├── 03-architecture/
+│   ├── 04-prompts/
+│   ├── 05-standards/       ← ai-rules.md, technology-stack.md
+│   ├── 06-decisions/
+│   └── templates/          ← module-template.md
+├── modules/
+│   └── {service-name}/
+│       ├── docs/
+│       │   ├── requirements.md
+│       │   └── architecture.md
+│       └── src/            ← generated source code lives here
+└── infra/                  ← Docker, CI/CD configs
+```
+
+## Coding Standards
+
+Always follow `docs/05-standards/ai-rules.md`:
+- Clean Architecture: Controller → Service → Repository
+- DTOs for all API payloads — never expose domain entities
+- Global exception handler for all errors
+- Bean Validation on all request DTOs
+- OpenAPI annotations on all endpoints
+- JUnit5 tests for Java, Jest for Node, pytest for Python
+
+## Technology Stack
+
+See `docs/05-standards/technology-stack.md` for the full list. Core:
+- Java services: Java 21 + Spring Boot 3 + Maven
+- Node services: NestJS + TypeScript
+- Python agents: LangGraph + Ollama
+- Messaging: Kafka
+- Database: PostgreSQL (per service) + Redis
+
+## Output Rules for All Agents
+
+- Always save requirements to: `modules/{service-name}/docs/requirements.md`
+- Always save architecture to: `modules/{service-name}/docs/architecture.md`
+- Always save source code to: `modules/{service-name}/src/`
+- Always save infra configs to: `infra/{service-name}/`
+- Follow the module template at: `docs/templates/module-template.md`
