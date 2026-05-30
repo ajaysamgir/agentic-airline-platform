@@ -1,0 +1,50 @@
+ # IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Build directories
+**/build/
+**/target/
+
+# Maven
+settings-security.xml
+
+# Gradle
+.gradle/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# JetBrains generated files
+*.iws
+
+# Environment files
+*.env
+
+# Node
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Misc
+.vscode/
